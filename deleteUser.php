@@ -1,6 +1,4 @@
 <?php
-
-
   include("auth/EtreAuthentifie.php");
   try {
     $SQL = "DELETE FROM users WHERE uid = ?";

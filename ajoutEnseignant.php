@@ -1,58 +1,38 @@
 <?php
-
 include("auth/EtreAuthentifie.php");
 if ($idm->getrole() == "admin") 
 {
-     if (empty($_POST['login'])) {
-      include('ajoutEnseignant_form.php');
-      exit();
-  }
-
-  $error = "";
-
-  foreach (['login', 'mdp', 'mdp2'] as $name) {
-      if (empty($_POST[$name])) {
-          $error .= "La valeur du champs '$name' ne doit pas être vide";
-      } else {
-          $data[$name] = $_POST[$name];
-      }
-  }
-
-
-  // Vérification si l'utilisateur existe
-  $SQL = "SELECT uid FROM users WHERE login=?";
-  $stmt = $db->prepare($SQL);
-  $res = $stmt->execute([$data['login']]);
-
-  if ($res && $stmt->fetch()) {
-      $error .= "Login déjà utilisé";
-  }
-
-  if ($data['mdp'] != $data['mdp2']) {
-      $error .="MDP ne correspondent pas";
-  }
-
-  if (!empty($error)) {
-      redirect('ajoutUser_form.php');
-      exit();
-  }
-
-
-  foreach (['login', 'mdp'] as $name) {
-      $clearData[$name] = $data[$name];
-  }
-
-  $passwordFunction =
-      function ($s) {
-          return password_hash($s, PASSWORD_DEFAULT);
-      };
-
-  $clearData['mdp'] = $passwordFunction($data['mdp']);
-  try {
-    $SQL = "INSERT INTO users(login,mdp) VALUES (:login,:mdp)";
+    $SQL = "SELECT annee FROM enseignants WHERE nom = ? AND prenom = ?";
     $stmt = $db->prepare($SQL);
-    $res = $stmt->execute($clearData);
-    redirect("listeUsers.php");
+    $stmt->execute(array(
+      $_POST['nom'],
+      $_POST['prenom']
+    ));
+    $data = $stmt->fetch();
+    if ($data['annee'] == date("Y")) {
+      $error .= "Enseignant déjà existant";
+    }
+
+    if (!empty($error)) {
+        redirect('ajoutEnseignant_form.php');
+        exit();
+    }
+
+  try {
+    $SQL = "INSERT INTO enseignants(uid, nom, prenom ,email, tel, annee, etid) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $db->prepare($SQL);
+    
+    echo "<br> ici <br>";
+    $stmt->execute(array(
+      htmlspecialchars($_POST['uid']),
+      htmlspecialchars($_POST['nom']),
+      htmlspecialchars($_POST['prenom']),
+      htmlspecialchars($_POST['email']),
+      htmlspecialchars($_POST['tel']),
+      date("Y"),
+      htmlspecialchars($_POST['etid'])
+    ));
+    redirect("listeEnseignants.php");
   } catch (\PDOException $e) {
     http_response_code(500);
     echo "Erreur de serveur.";

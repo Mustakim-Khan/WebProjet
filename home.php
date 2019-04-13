@@ -10,11 +10,14 @@ if ($idm->getrole() == "admin") {
 
 ?>
 	<p><a href="listeUsers.php">Consulter liste des users</a></p>
+	<p><a href="listeEnseignants.php">Liste des enseignants</a></p>
 <?php
 }
-else{
+else if ($idm->getrole() == "user") {
+
 ?>
-	<p><a href="listeUsers.php">Consulter informations de l'utilisateur</a></p>
+	<p><a href="listeUsers.php">Consulter informations d'utilisateur</a></p>
+	<p><a href="listeEnseignants.php">Consulter informations d'enseignant</a></p>
 <?php
 }
 include("footer.php");
