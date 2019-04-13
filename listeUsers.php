@@ -31,7 +31,8 @@ include("footer.php");
 	$requete->closecursor();
 ?>
 <p><a href="ajoutUser_form.php">Ajouter un utilisateur</a></p>
-<?php	
+<?php
+include("footer.php");	
 	}
 
 	else if($idm->getrole() == "user")
@@ -44,15 +45,19 @@ include("footer.php");
 			</tr>
 <?php
 			$requete = $db->query('SELECT * FROM users WHERE uid = ' . $idm->getUid());
-			$data = $requete->fetch();
+			while($data = $requete->fetch())
+			{
 ?>
-			<tr>
-				<td><?php echo $data['uid']; ?></td>
-				<td><?php echo $data['login']; ?></td>
-				<td><?php echo '<a href="modifUser_form.php?uid=' . $data['uid'] . '">' . 'Modifier mdp' . '</a>'; ?></td>
-			</tr>
-		</table>
+				<tr>
+					<td><?php echo $data['uid']; ?></td>
+					<td><?php echo $data['login']; ?></td>
+					<td><?php echo '<a href="modifUser_form.php?uid=' . $data['uid'] . '">' . 'Modifier mdp' . '</a>'; ?></td>
+				</tr>
 <?php 
+			}
+?>
+		</table>
+<?php
 		$requete->closecursor();
 	}
 include("footer.php");

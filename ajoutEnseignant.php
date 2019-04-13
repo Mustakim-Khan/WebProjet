@@ -21,8 +21,6 @@ if ($idm->getrole() == "admin")
   try {
     $SQL = "INSERT INTO enseignants(uid, nom, prenom ,email, tel, annee, etid) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($SQL);
-    
-    echo "<br> ici <br>";
     $stmt->execute(array(
       htmlspecialchars($_POST['uid']),
       htmlspecialchars($_POST['nom']),
