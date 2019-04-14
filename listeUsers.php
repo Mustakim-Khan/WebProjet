@@ -13,7 +13,6 @@
 <?php
 		$requete = $db->query("SELECT * FROM users");
 		while ($data = $requete->fetch()) {
-			$id = $data['uid'];
 ?>
 		<tr>
 			<td><?php echo $data['uid']; ?></td>
@@ -30,7 +29,7 @@ include("footer.php");
 <?php
 	$requete->closecursor();
 ?>
-<p><a href="ajoutUser_form.php">Ajouter un utilisateur</a></p>
+<p><a href="ajoutGtype_form.php">Ajouter un gtype</a></p>
 <?php
 include("footer.php");	
 	}

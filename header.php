@@ -18,7 +18,8 @@
 <title><?= $title??"" ?></title>
 
     <style>
-        .table {width: 100%;}
+        table th {text-align: center;}
+        .table {table-layout: fixed; width: 90%; text-align: center;}
         .center { text-align: center }
         .center table {margin-left:auto; margin-right:auto;}
         .left {text-align: right}

@@ -29,7 +29,7 @@ include("header.php");
                             <td><input max="99999999999999" type="number" name="tel" class="form-control" id="inputTel" placeholder="Telephone" required value=""></td>
                     </tr>
                     <tr>
-                        <td><label class="control-label">Associer à l'utilisateur :</label></td>
+                        <td><label class="control-label">Associer à l'utilisateur</label></td>
                             <td>
                                 <select class="form-control" required name="uid" form="ens">
                                     <?php $requete = $db->query("SELECT * FROM users WHERE role != 'admin'"); ?>
@@ -47,7 +47,7 @@ include("header.php");
                             </td>
                     </tr>
                      <tr>
-                        <td><label class="control-label">Type de professeur :</label></td>
+                        <td><label class="control-label">Type de professeur</label></td>
                             <td>
                                 <select class="form-control" required name="etid" form="ens">
                                     <?php $requete = $db->query("SELECT * FROM etypes"); ?>
