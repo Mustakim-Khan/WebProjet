@@ -29,7 +29,7 @@ include("footer.php");
 <?php
 	$requete->closecursor();
 ?>
-<p><a href="ajoutGtype_form.php">Ajouter un gtype</a></p>
+<p><a href="ajoutUser_form.php">Ajouter un utilisateur</a></p>
 <?php
 include("footer.php");	
 	}

@@ -14,6 +14,7 @@ if ($idm->getrole() == "admin") {
 	<p><a href="listeModules.php">Liste des modules</a></p>
 	<p><a href="listeGroupes.php">Liste des groupes</a></p>
 	<p><a href="listeGtypes.php">Liste des gtypes</a></p>
+	<p><a href="listeAffectations.php">Liste des affectations</a></p>
 <?php
 }
 else if ($idm->getrole() == "user") {
