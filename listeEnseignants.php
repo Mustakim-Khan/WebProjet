@@ -26,6 +26,7 @@ if ($idm->getrole() == "admin") {
         <td><?php echo $data['annee']; ?></td>
         <td><?php echo '<a href="modifEnseignant_form.php?eid=' . $data['eid'] . '&annee=' . $data['annee'] .'&uid='. $data['uid'] . '">' . 'Modifier enseignant' . '</a>'; ?></td>
         <td><?php echo '<a href="deleteEnseignant.php?eid=' . $data['eid'] . '&annee=' . $data['annee'] .'&uid='. $data['uid'] . '">' . 'Supprimer enseignant' . '</a>'; ?></td>
+        <td><?php echo '<a href="tabDeBord_Enseignant.php?eid=' . $data['eid'] . '">' . 'Afficher cours' . '</a>'; ?></td>
       </tr>
 <?php
     }
@@ -60,6 +61,7 @@ include("footer.php");
           <td><?php echo $data['email']; ?></td>
           <td><?php echo $data['annee']; ?></td>
           <td><?php echo '<a href="modifEnseignant_form.php?eid=' . $data['eid'] . '&annee=' . $data['annee'] .'&uid='. $data['uid'] . '">' . 'Modifier enseignant' . '</a>'; ?></td>
+          <td><?php echo '<a href="tabDeBord_Enseignant.php?eid=' . $data['eid'] . '">' . 'Tableau de bord' . '</a>'; ?></td>
         </tr>
 <?php 
       }

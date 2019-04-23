@@ -18,8 +18,9 @@
 <title><?= $title??"" ?></title>
 
     <style>
+        .main{width: 95%; margin: auto;}
         table th {text-align: center;}
-        .table {table-layout: fixed; width: 90%; text-align: center;}
+        .table {table-layout: fixed; text-align: center;}
         .center { text-align: center }
         .center table {margin-left:auto; margin-right:auto;}
         .left {text-align: right}
@@ -48,3 +49,4 @@
     </ul>
   </div>
 </nav>
+<div class="main">

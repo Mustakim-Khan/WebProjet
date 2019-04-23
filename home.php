@@ -20,7 +20,7 @@ if ($idm->getrole() == "admin") {
 else if ($idm->getrole() == "user") {
 
 ?>
-	<p><a href="listeUsers.php">Consulter les informations de l'utilisateur</a></p>
+	<p><a href="listeUsers.php">Consulter informations de l'utilisateur</a></p>
 	<p><a href="listeEnseignants.php">Consulter les informations de l'enseignant</a></p>
 	<p><a href="listeModules.php">Consulter les modules de l'enseignant</a></p>
 	<p><a href="listeModules.php">Consulter les groupes de l'enseignant</a></p>
